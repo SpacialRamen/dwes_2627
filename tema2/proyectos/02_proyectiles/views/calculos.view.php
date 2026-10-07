@@ -26,62 +26,69 @@
         <!-- contenido principal de la aplicación -->
         <main>
             <div class="container">
-                
+
                 <div class="bg-light p-3 mb-3">
                     <h1 class="display-4">Lanzamiento Proyectiles</h1>
                     <p class="mb-1">Proyecto 2.2 - DWES</p>
                 </div>
-                
+
                 <table class="table table-sm">
                     <tbody>
-                        
+
                         <tr class="table-light">
                             <th colspan="2">Valores Iniciales</th>
                         </tr>
-                        
+
                         <tr>
                             <td>Velocidad Inicial</td>
                             <td><?= number_format($velocidad_inicial, 2, ',', '.') ?> m/s</td>
                         </tr>
-                        
+
                         <tr>
                             <td>Ángulo Inclinación</td>
                             <td><?= number_format($angulo_lanzamiento, 2, ',', '.') ?>°</td>
                         </tr>
-                        
+
                         <tr class="table-light">
                             <th colspan="2">Resultados</th>
                         </tr>
-                    
+
                         <tr>
                             <td>Ángulo en Radianes</td>
                             <td><?= number_format($angulo_radianes, 5, ',', '.') ?></td>
                         </tr>
-                    
+
                         <tr>
                             <td>Velocidad Inicial X</td>
                             <td><?= number_format($velocidad_inicial_horizontal, 2, ',', '.') ?> m/s</td>
                         </tr>
-                    
+
                         <tr>
                             <td>Velocidad Inicial Y</td>
                             <td><?= number_format($velocidad_inicial_vertical, 2, ',', '.') ?> m/s</td>
                         </tr>
-                    
+
+                        <tr>
+                            <td>Alcance Máximo</td>
+                            <td><?= number_format($alcance_maximo, 2, ',', '.') ?> m</td>
+                        </tr>
+
                         <tr>
                             <td>Tiempo de Vuelo</td>
                             <td><?= number_format($tiempo_vuelo, 2, ',', '.') ?> s</td>
                         </tr>
-                    
+
                         <tr>
                             <td>Altura Máxima</td>
                             <td><?= number_format($altura_maxima, 2, ',', '.') ?> m</td>
                         </tr>
-                
+
                     </tbody>
                 </table>
-            
+
             </div>
+
+            <button type="button" class="btn btn-warning" onclick="window.location.href='views/index.view.php'">Volver</button>
 
         </main>
 

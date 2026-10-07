@@ -44,7 +44,7 @@
                 <!-- botones de  acción -->
                 <div class="btn-group" role="group">
                     <button type="reset" class="btn btn-danger">Borrar</button>
-                    <button type="submit" class="btn btn-warning" name="operacion" value="calcular" formaction="calcular.php">Calcular</button>
+                    <button type="submit" class="btn btn-warning" name="operacion" value="calcular" formaction="../calcular.php">Calcular</button>
                 </div>
 
             </form>

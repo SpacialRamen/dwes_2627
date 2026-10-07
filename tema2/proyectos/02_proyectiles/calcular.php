@@ -18,5 +18,8 @@ $tiempo_vuelo = (2 * $velocidad_inicial_vertical) / GRAVEDAD;
 //calcular la altura máxima del proyectil
 $altura_maxima = ($velocidad_inicial_vertical ** 2) / (2 * GRAVEDAD);
 
+//calcular el alcance máximo del proyectil
+$alcance_maximo = (($velocidad_inicial ** 2) * sin(2 * $angulo_radianes)) / GRAVEDAD;
+
 
 include 'views/calculos.view.php';
