@@ -36,15 +36,15 @@
                 <tbody>
                     <tr>
                         <td>Velocidad Inicial Vertical (m/s)</td>
-                        <td><?php echo number_format($velocidad_inicial_vertical, 2); ?></td>
+                        <td><?php echo number_format($velocidad_inicial_vertical, 2, ',', '.'); ?></td>
                     </tr>
                     <tr>
                         <td>Velocidad Inicial Horizontal (m/s)</td>
-                        <td><?php echo number_format($velocidad_inicial_horizontal, 2); ?></td>
+                        <td><?php echo number_format($velocidad_inicial_horizontal, 2, ',', '.'); ?></td>
                     </tr>
                     <tr>
                         <td>Tiempo de Vuelo (s)</td>
-                        <td><?php echo number_format($tiempo_vuelo, 2); ?></td>
+                        <td><?php echo number_format($tiempo_vuelo, 2, ',', '.'); ?></td>
                     </tr>
                     <tr>
                         <td>Altura Máxima (m)</td>
