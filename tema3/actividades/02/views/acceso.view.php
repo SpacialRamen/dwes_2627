@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Actividad 3.2 - Formulario de Registro</title>
 
     <!-- css bootstrap básico 5.3.8 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -18,13 +18,28 @@
         <!-- cabecera de la aplicación -->
         <header class="bg-primary text-white p-3 mb-3">
             <i class="bi bi-stack"></i>
-            <span class="fs-6">Título de aplicación</span>
+            <span class="fs-6">Actividad 3.2 - Formulario de Registro</span>
         </header>
     
         <!-- contenido principal de la aplicación -->
         <main>
             <div class="content">
-
+                <!-- generar menu dinamico sgun perfil de usuario -->
+                <ul class="list-group">
+                    <?php if ($profile === 'admin'): ?>
+                        <li class="list-group-item">Añadir</li>
+                        <li class="list-group-item">Eliminar</li>
+                        <li class="list-group-item">Actualizar</li>
+                        <li class="list-group-item">Consultar</li>
+                    <?php elseif ($profile === 'edit'): ?>
+                        <li class="list-group-item">Añadir</li>
+                        <li class="list-group-item">Actualizar</li>
+                        <li class="list-group-item">Consultar</li>
+                    <?php elseif ($profile === 'user'): ?>
+                        <li class="list-group-item">Consultar</li>
+                    <?php else: ?>
+                        <li class="list-group-item">Perfil no válido</li>
+                    <?php endif; ?>
             </div>
 
         </main>
