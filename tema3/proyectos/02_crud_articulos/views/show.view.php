@@ -29,33 +29,31 @@
         <main>
             <div class="content">
 
-                <legend>Formulario Nuevo Libro</legend>
+                <legend>Formulario Mostrar Libro</legend>
 
                 <!-- formulario nuevo libro -->
-                <form action="create.php" method="post">
+                <form action="update.php" <? $indice ?> method="post">
                     <div class="mb-3">
                         <label for="titulo" class="form-label">Título:</label>
-                        <input type="text" class="form-control" id="titulo" name="titulo" required>
+                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?=  $libro['titulo'] ?>"  disabled required>
                     </div>
                     <div class="mb-3">
                         <label for="autor" class="form-label">Autor:</label>
-                        <input type="text" class="form-control" id="autor" name="autor" required>
+                        <input type="text" class="form-control" id="autor" name="autor" value="<?=  $libro['autor'] ?>"  disabled required>
                     </div>
                     <div class="mb-3">
                         <label for="editorial" class="form-label">Editorial:</label>
-                        <input type="text" class="form-control" id="editorial" name="editorial" required>
+                        <input type="text" class="form-control" id="editorial" name="editorial" value="<?=  $libro['editorial'] ?>"  disabled required>
                     </div>
                     <div class="mb-3">
                         <label for="generos" class="form-label">Géneros:</label>
-                        <input type="text" class="form-control" id="generos" name="generos">
+                        <input type="text" class="form-control" id="generos" name="generos" value="<?=  implode(', ', $libro['generos']) ?>" disabled required>
                     </div>
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio:</label>
-                        <input type="number" step="0.01" class="form-control" id="precio" name="precio">
+                        <input type="number" step="0.01" class="form-control" id="precio" name="precio" value="<?=  $libro['precio'] ?>" disabled required>
                     </div>
-                    <a class="btn-solid theme-danger" href="index.php" role="button">Cancelar</a>
-                    <button type="reset" class="btn-solid theme-warning">Borrar</button>
-                    <button type="submit" class="btn-solid theme-primary">Crear Libro</button>
+                    <a class="btn-solid theme-danger" href="index.php" role="button">Volver</a>
                 </form>
             </div>
 

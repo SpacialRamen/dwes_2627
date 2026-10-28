@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Proyecto 3.1 - CRUD Libros</title>
+    <title>Proyecto 3.1 - CRUD Articulos</title>
 
     <!-- css bootstrap 6.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
@@ -21,13 +21,13 @@
         <!-- cabecera de la aplicación -->
         <header class="bg-primary text-white p-3 mb-3">
             <i class="bi bi-stack"></i>
-            <span class="fs-6">Proyecto 3.1 - CRUD Libros</span>
+            <span class="fs-6">Proyecto 3.1 - CRUD Articulos</span>
         </header>
 
         <!-- Menú principal de la aplicación -->
         <nav class="navbar md:navbar-expand bg-1">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Libros</a>
+                <a class="navbar-brand" href="#">Articulos</a>
                 <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarDrawer" aria-controls="navbarDrawer" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" aria-hidden="true"></span>
                 </button>
@@ -46,21 +46,22 @@
                             </li>
                             <li class="nav-item">
                                 <button class="nav-link" type="button" data-bs-toggle="menu" aria-expanded="false">
-                                    Menu
+                                    Ordenar
                                 </button>
                                 <div class="menu">
-                                    <a class="menu-item" href="#">Action</a>
-                                    <a class="menu-item" href="#">Another action</a>
-                                    <hr class="menu-divider">
-                                    <a class="menu-item" href="#">Something else here</a>
+                                    <a class="menu-item" href="order.php?criterio=id">Por ID</a>
+                                    <a class="menu-item" href="order.php?criterio=descripcion">Por Descripción</a>
+                                    <a class="menu-item" href="order.php?criterio=modelo">Por Modelo</a>
+                                    <a class="menu-item" href="order.php?criterio=unidades">Por Unidades</a>
+                                    <a class="menu-item" href="order.php?criterio=precio">Por Precio</a>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                             </li>
                         </ul>
-                        <form class="hstack gap-2" role="search">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+                        <form class="hstack gap-2" role="search" action="filter.php" method="get">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="prompt" />
                             <button class="btn-solid btn-icon theme-secondary" type="submit">
                                 <svg class="bi" width="16" height="16">
                                     <use href="#search" />
@@ -76,39 +77,44 @@
         <main>
             <div class="content">
 
-                <legend>Tabla de libros</legend>
+                <legend>Tabla de artículos</legend>
 
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">id</th>
-                            <th scope="col">Título</th>
-                            <th scope="col">Autor</th>
-                            <th scope="col">Editorial</th>
-                            <th scope="col">Género</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Categorías</th>
+                            <th scope="col">Unidades</th>
                             <th scope="col" class="text-end">Precio</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($libros as $indice => $libro): ?>
+                        <?php foreach (($articulos ?? []) as $indice => $articulo): ?>
                             <tr>
-                                <th scope="row" class="text-end"><?= $libro['id']  ?></th>
-                                <td><?= $libro['titulo']  ?></td>
-                                <td><?= $libro['autor']  ?></td>
-                                <td><?= implode(', ', $libro['generos'])  ?></td>
-                                <td><?= $libro['editorial']  ?></td>
-                                <td class="text-end"><?= number_format($libro['precio'], 2, ',', '.')  ?> €</td>
+                                <th scope="row" class="text-end"><?= $articulo['id']  ?></th>
+                                <td><?= $articulo['descripcion']  ?></td>
+                                <td><?= $articulo['modelo']  ?></td>
+                                <td><?= implode(', ', $articulo['categorias'])  ?></td>
+                                <td><?= $articulo['unidades']  ?></td>
+                                <td class="text-end"><?= number_format($articulo['precio'], 2, ',', '.')  ?> €</td>
                                 <!-- botones de acción -->
                                 <td> 
                                     <!-- boton editar -->
-                                    <a href="edit.php?indice=<?= $indice ?>" class="btn btn-outline-primary btn-sm" title="Editar">
+                                    <a href="edit.php?indice=<?= $indice ?>" class="btn-solid theme-info" title="Editar">
                                         <i class="bi bi-pencil"></i>
                                     </a> 
                                     <!-- eliminar -->
-                                    <i class="bi bi-trash3"></i>
+                                     <a href="delete.php?indice=<?= $indice ?>" class="btn-solid theme-danger" title="Eliminar">
+                                        <i class="bi bi-trash3"></i>
+                                    </a> 
                                     <!-- mostrar -->
-                                    <i class="bi bi-eye"></i>    
+                                     <a href="show.php?indice=<?= $indice ?>" class="btn-solid theme-warning" title="Mostrar">
+                                        <i class="bi bi-eye"></i>
+                                    </a> 
+                                        
                                 </td>
                                 
                             </tr>
@@ -117,7 +123,7 @@
                     <tfoot>
                         <tr>
                             <td colspan="6" class="text-end">Total</td>
-                            <td class="text-end"><?= count($libros)  ?></td>
+                            <td class="text-end"><?= count($articulos ?? [])  ?></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -130,7 +136,7 @@
         <footer class="footer mt-auto py-3 fixed-bottom bg-light">
             <div class="container">
                 <span class="text-muted">&copy; 2026
-                    Juan Carlos Moreno - DWES - 2º DAW - Curso 26/27
+                    Pablo Bocanegra Corrales - DWES - 2º DAW - Curso 26/27
                 </span>
             </div>
         </footer>
