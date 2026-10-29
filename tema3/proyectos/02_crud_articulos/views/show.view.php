@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Proyecto 3.1 - CRUD Libros</title>
+    <title>Proyecto 3.1 - CRUD Articulos</title>
 
     <!-- css bootstrap 6.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
@@ -21,7 +21,7 @@
         <!-- cabecera de la aplicación -->
         <header class="bg-primary text-white p-3 mb-3">
             <i class="bi bi-stack"></i>
-            <span class="fs-6">Proyecto 3.1 - CRUD Libros</span>
+            <span class="fs-6">Proyecto 3.2 - CRUD Articulos</span>
         </header>
         
 
@@ -29,29 +29,29 @@
         <main>
             <div class="content">
 
-                <legend>Formulario Mostrar Libro</legend>
+                <legend>Formulario Mostrar Articulo</legend>
 
-                <!-- formulario nuevo libro -->
+                <!-- formulario nuevo articulo -->
                 <form action="update.php" <? $indice ?> method="post">
                     <div class="mb-3">
-                        <label for="titulo" class="form-label">Título:</label>
-                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?=  $libro['titulo'] ?>"  disabled required>
+                        <label for="descripcion" class="form-label">Descripción:</label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?=  $articulo['descripcion'] ?>"  disabled>
                     </div>
                     <div class="mb-3">
-                        <label for="autor" class="form-label">Autor:</label>
-                        <input type="text" class="form-control" id="autor" name="autor" value="<?=  $libro['autor'] ?>"  disabled required>
+                        <label for="modelo" class="form-label">Modelo:</label>
+                        <input type="text" class="form-control" id="modelo" name="modelo" value="<?=  $articulo['modelo'] ?>"  disabled>
                     </div>
                     <div class="mb-3">
-                        <label for="editorial" class="form-label">Editorial:</label>
-                        <input type="text" class="form-control" id="editorial" name="editorial" value="<?=  $libro['editorial'] ?>"  disabled required>
+                        <label for="categorias" class="form-label">Categorías:</label>
+                        <input type="text" class="form-control" id="categorias" name="categorias" value="<?=  $articulo['categorias'] ?>"  disabled>
                     </div>
                     <div class="mb-3">
-                        <label for="generos" class="form-label">Géneros:</label>
-                        <input type="text" class="form-control" id="generos" name="generos" value="<?=  implode(', ', $libro['generos']) ?>" disabled required>
+                        <label for="unidades" class="form-label">Unidades:</label>
+                        <input type="text" class="form-control" id="unidades" name="unidades" value="<?=  implode(', ', $articulo['unidades']) ?>" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio:</label>
-                        <input type="number" step="0.01" class="form-control" id="precio" name="precio" value="<?=  $libro['precio'] ?>" disabled required>
+                        <input type="number" step="0.01" class="form-control" id="precio" name="precio" value="<?=  $articulo['precio'] ?>" disabled>
                     </div>
                     <a class="btn-solid theme-danger" href="index.php" role="button">Volver</a>
                 </form>
@@ -63,7 +63,7 @@
         <footer class="footer mt-auto py-3 fixed-bottom bg-light">
             <div class="container">
                 <span class="text-muted">&copy; 2026
-                    Juan Carlos Moreno - DWES - 2º DAW - Curso 26/27
+                    Pablo Bocanegra Corrales - DWES - 2º DAW - Curso 26/27
                 </span>
             </div>
         </footer>

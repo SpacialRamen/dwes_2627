@@ -58,5 +58,5 @@ $articulos[] = $new_articulo;
 
 
 // Views
-include 'views/index.view.php';
+include 'views/new.view.php';
 

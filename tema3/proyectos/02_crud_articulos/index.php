@@ -3,7 +3,7 @@
 /**
  * create.php
  *
- * permite crear un nuevo libro a partir de los datos enviados desde el formulario.
+ * permite crear un nuevo artículo a partir de los datos enviados desde el formulario.
  *
  * @package    CRUD Artículos
  * @author     Pablo Bocanegra Corrales
@@ -25,8 +25,7 @@ require_once 'libs/functions.php';
 // Models
 
 // Negociado
-$libros = get_articulos();
+$articulos = get_articulos();
 
 // Views
 include 'views/index.view.php';
-
